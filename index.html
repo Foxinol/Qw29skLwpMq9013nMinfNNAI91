@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html class="loading" lang="ru">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
-    <meta content="Хочешь видео мирового уровня? Вместе сделаем из твоих — качество Голливуда! Экспертный монтажёр NN Минфай Трибелл." name="description"/>
-    <meta content="#000000" name="theme-color"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <meta content="Хочешь видео мирового уровня? Вместе сделаем из твоих качество Голливуда! Экспертный монтажёр NN Минфай Трибелл." name="description" />
+    <meta content="#000000" name="theme-color" />
     <title>NN Минфай Трибелл | Видео мирового уровня</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-    <!-- Подключаем единый шрифт Inter, чтобы буквы не плясали -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet"/>
-    
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://rutube.ru" />
+
+    <script src="https://cdn.tailwindcss.com" defer>
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+
     <style>
         :root {
             --bg: #000000;
@@ -24,17 +28,16 @@
             --glow: rgba(255, 255, 255, 0.15);
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             cursor: default;
             touch-action: pan-x pan-y;
         }
 
         body {
-            /* Теперь везде Inter — буквы одного характера и размера */
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             overflow-x: hidden;
@@ -42,8 +45,12 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .tracking-tight { letter-spacing: -0.04em; }
-        .tracking-widest { letter-spacing: 0.15em; }
+        .tracking-tight {
+            letter-spacing: -0.04em;
+        }
+        .tracking-widest {
+            letter-spacing: 0.15em;
+        }
 
         .loading {
             overflow: hidden !important;
@@ -66,6 +73,7 @@
             background: linear-gradient(180deg, #ffffff 0%, #666666 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 700;
             font-size: 2.5rem;
             letter-spacing: 0.25em;
@@ -73,8 +81,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; filter: drop-shadow(0 0 20px rgba(255,255,255,0.2)); }
-            50% { opacity: 0.3; filter: drop-shadow(0 0 0px rgba(255,255,255,0)); }
+            0%,
+            100% {
+                opacity: 1;
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            }
+            50% {
+                opacity: 0.3;
+                filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+            }
         }
 
         .bg-fx-container {
@@ -89,7 +104,7 @@
         .grid-overlay {
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
             background-size: 80px 80px;
@@ -124,16 +139,17 @@
         }
 
         .glass-nav {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .text-gradient {
             background: linear-gradient(135deg, #ffffff 0%, #777777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: inline-block;
         }
 
@@ -175,9 +191,11 @@
         .btn-massive::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
             transition: all 0.6s ease;
         }
 
@@ -209,6 +227,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
+            letter-spacing: 0.05em;
         }
 
         .btn-outline:hover {
@@ -217,7 +236,11 @@
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
         }
 
-        a, button, iframe { cursor: pointer; }
+        a,
+        button,
+        iframe {
+            cursor: pointer;
+        }
 
         .bento-grid {
             display: grid;
@@ -226,7 +249,7 @@
         }
 
         .bento-item {
-            background: linear-gradient(180deg, rgba(25,25,25,0.4) 0%, rgba(0,0,0,0.8) 100%);
+            background: linear-gradient(180deg, rgba(25, 25, 25, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
             border: 1px solid var(--border);
             backdrop-filter: blur(20px);
             border-radius: 2rem;
@@ -252,10 +275,9 @@
             border: 1px solid var(--border);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            /* Плавное появление будет управляться анимацией stagger */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
-        
+
         .video-card:hover {
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.08);
@@ -263,25 +285,123 @@
             z-index: 10;
         }
 
-        .video-label {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(12px);
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #fff;
+        .stagger-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .fade-in {
+            opacity: 0;
         }
 
-        .stagger-up { opacity: 0; transform: translateY(40px); }
-        .fade-in { opacity: 0; }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99999;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.875rem;
+            color: #aaa;
+            letter-spacing: 0.02em;
+        }
+
+        .cookie-banner.active {
+            transform: translateY(0);
+        }
+
+        .cookie-btn {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 0.6rem 1.8rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cookie-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.03);
+        }
+
+        .review-card {
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .review-card:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .blogger-card {
+            background: linear-gradient(160deg, rgba(35, 35, 35, 0.6) 0%, rgba(0, 0, 0, 0.85) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blogger-card::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .blogger-card:hover {
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-6px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .blogger-card {
+                padding: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="loading" id="top">
@@ -297,47 +417,49 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-            <a href="#top" class="text-2xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
+        <div class="max-w-[90rem] mx-auto px-6 md:px-12 h-18 md:h-20 flex items-center justify-between">
+            <a href="#top" class="text-xl md:text-2xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
                 NN.TRIBELL
             </a>
             <div class="hidden md:flex items-center gap-10 text-sm font-semibold uppercase tracking-widest text-gray-300">
                 <a href="#portfolio" class="hover:text-white transition-colors cursor-pointer">Портфолио</a>
+                <a href="#bloggers" class="hover:text-white transition-colors cursor-pointer">Блогеры</a>
+                <a href="#reviews" class="hover:text-white transition-colors cursor-pointer">Отзывы</a>
                 <a href="#referral" class="hover:text-white transition-colors cursor-pointer">Партнёрка</a>
             </div>
-            <a href="https://t.me/NNminfai" target="_blank" class="btn-outline">
+            <a href="https://t.me/NNminfai" target="_blank" class="btn-outline text-sm">
                 @NNminfai
             </a>
         </div>
     </nav>
 
     <main class="relative z-10">
-        
-        <section id="hero" class="relative min-h-screen pt-40 pb-20 px-6 flex flex-col justify-center items-center text-center max-w-5xl mx-auto">
+
+        <section id="hero" class="relative min-h-screen pt-40 pb-16 px-6 flex flex-col justify-center items-center text-center max-w-[90rem] mx-auto">
             <div class="badge stagger-up mb-8">
                 <span class="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_10px_#fff]"></span>
                 Экспертный монтажёр
             </div>
-            
-            <h1 class="text-5xl md:text-[80px] lg:text-[95px] font-bold leading-[1.05] tracking-tight mb-10 stagger-up">
-                Хочешь видео<br/>
+
+            <h1 class="text-5xl md:text-[80px] lg:text-[100px] font-bold leading-[1.05] tracking-tight mb-10 stagger-up max-w-5xl">
+                Хочешь видео<br />
                 <span class="text-gradient pb-2">мирового уровня?</span>
             </h1>
-            
-            <div class="max-w-3xl flex flex-col items-center justify-center stagger-up mb-20">
+
+            <div class="max-w-4xl flex flex-col items-center justify-center stagger-up mb-16">
                 <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 leading-relaxed font-light">
-                    Вместе сделаем из твоих —<br class="hidden sm:block"> 
+                    Вместе сделаем из твоих<br class="hidden sm:block" />
                     качество Голливуда!
                 </p>
             </div>
 
-            <a href="#portfolio" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity fade-in cursor-pointer">
-                <span class="text-xs uppercase tracking-widest text-white font-semibold">Scroll</span>
-                <div class="w-[1px] h-16 bg-gradient-to-b from-white via-gray-500 to-transparent"></div>
+            <a href="#portfolio" class="btn-massive stagger-up">
+                Смотреть работы
+                <i class="fa-solid fa-arrow-down text-2xl"></i>
             </a>
         </section>
 
-        <section class="py-32 px-6 max-w-7xl mx-auto" id="portfolio">
+        <section class="py-32 px-6 max-w-[95rem] mx-auto" id="portfolio">
             <div class="text-center mb-24 stagger-up">
                 <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Работы</h2>
                 <p class="text-gray-400 uppercase tracking-widest text-sm font-semibold">
@@ -346,24 +468,19 @@
             </div>
 
             <div class="mb-32 portfolio-block" data-animate="stagger">
-                <div class="flex items-center justify-center gap-6 mb-16">
+                <div class="flex items-center justify-center gap-6 mb-14">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
-                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Горизонтальные видео</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-gray-200">Горизонтальные видео</h3>
                     <div class="h-[1px] w-20 bg-gradient-to-l from-transparent to-gray-500"></div>
                 </div>
-                
+
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 place-items-center">
-                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 1 (новое, первое место) -->
                     <div class="video-card aspect-video w-full stagger-up">
-                        <div class="video-label">Горизонт.</div>
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/deff699a0fefa6cda7fc0179859d44f5/?p=U2WsOaViISXoSlvAozKl9g" loading="lazy"></iframe>
                     </div>
-                    <!-- ГОРИЗОНТАЛЬНОЕ ВИДЕО 2 (старое, второе место) -->
                     <div class="video-card aspect-video w-full stagger-up">
-                        <div class="video-label">Горизонт.</div>
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c9f9af649925f1bcf1946a586646ac0d/?p=pW56yV7VR9EvsFwowg-QQA" loading="lazy"></iframe>
                     </div>
-                    <!-- Заглушка -->
                     <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent stagger-up">
                         <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-lg">
                             <i class="fa-solid fa-play text-3xl opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-transform"></i>
@@ -376,27 +493,35 @@
             </div>
 
             <div class="portfolio-block" data-animate="stagger">
-                <div class="flex items-center justify-center gap-6 mb-16">
+                <div class="flex items-center justify-center gap-6 mb-14">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
-                    <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-gray-200">Вертикальные видео</h3>
+                    <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-gray-200">Вертикальные видео</h3>
                     <div class="h-[1px] w-20 bg-gradient-to-l from-transparent to-gray-500"></div>
                 </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 place-items-center">
-                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 1 (остаётся) -->
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 place-items-center">
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/e14edc39c83e6490d5ae1892777f05f2/?p=RsCnagzKMmYY1z24Vw25eA" loading="lazy"></iframe>
                     </div>
-                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 2 (заменено) -->
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c3f12544954da8b532eb8c6096f9e8ea/?p=qlMfvznDZo87ctZONuK8oA" loading="lazy"></iframe>
                     </div>
-                    <!-- ВЕРТИКАЛЬНОЕ ВИДЕО 3 (остаётся) -->
-                    <div class="video-card aspect-[9/16] w-full max-w-[320px] stagger-up">
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
                         <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2db2b37762939aeb786396076a6dbf79/?p=Z-uDlZ8L01-zqrFTzNUQ1w" loading="lazy"></iframe>
                     </div>
-                    <!-- Заглушка -->
-                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[320px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/5ca8977bedd638a1d965392a73ac6316/?p=Rrfe4Eyv4WeEEAQsoz0z-g" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2dfaacbeba5b6e34a603e58a3ad240ba/?p=sxnT3_FE5PxTNreWSzF4zA" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/6c864523e44f26067e4eedb2b478fe51/?p=0HolYp85RHyfnOntTKjxUg" loading="lazy"></iframe>
+                    </div>
+                    <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
+                        <iframe allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2a27dded41e29d082a8a196dcd7c59dc/?p=0cSSuGDTiARYSCcWTvm1TA" loading="lazy"></iframe>
+                    </div>
+                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[340px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
                         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
                             <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
                         </div>
@@ -413,7 +538,78 @@
             </div>
         </section>
 
-        <section class="py-24 px-6 max-w-6xl mx-auto" id="referral">
+        <section class="py-24 px-6 max-w-[90rem] mx-auto" id="bloggers">
+            <div class="text-center mb-16 stagger-up">
+                <div class="badge mb-8">Крупные блогеры</div>
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                    <span class="text-gradient pb-2">Алина Ботановна</span>
+                </h2>
+            </div>
+
+            <div class="blogger-card max-w-3xl mx-auto stagger-up">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <img src="https://kappa.lol/G9zT5k" alt="Алина Ботановна" class="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-2 border-white/20 shadow-[0_0_40px_rgba(255,255,255,0.1)] flex-shrink-0" loading="lazy" />
+                    <div class="flex flex-col gap-3 text-center md:text-left">
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                            <span class="text-3xl md:text-4xl font-bold tracking-tight">Алина Ботановна</span>
+                            <a href="https://www.instagram.com/alina_botanovna" target="_blank" class="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-1.5 rounded-full text-sm font-semibold text-white hover:bg-white/20 transition-all cursor-pointer">
+                                <i class="fa-brands fa-instagram"></i> Instagram
+                            </a>
+                        </div>
+                        <p class="text-2xl font-semibold text-gray-300">7,3 млн подписчиков</p>
+                        <p class="text-gray-400 leading-relaxed max-w-xl">
+                            Блогер и контент-креатор, наставник UGC-креаторов. Создаёт контент, обучает работе с брендами и развивает личный бренд в соцсетях.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-6 pt-6 border-t border-white/10">
+                    <p class="text-lg md:text-xl text-gray-200 italic leading-relaxed">
+                        «Очень классные видео! Понравились вот эти звучки, вылетающий текст, приближения»
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-[90rem] mx-auto" id="reviews">
+            <div class="text-center mb-16 stagger-up">
+                <div class="badge mb-8">Отзывы</div>
+                <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                    Что говорят <span class="text-gradient pb-2">клиенты</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="review-card stagger-up">
+                    <div class="flex items-center gap-4">
+                        <img src="https://kappa.lol/rJDITV" alt="Avatar" class="review-avatar" loading="lazy" />
+                        <span class="font-semibold text-white tracking-wide">Клиент</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        «Очень довольна!! видео очень живое и атмосферное, прямо передаёт эмоции»
+                    </p>
+                </div>
+                <div class="review-card stagger-up">
+                    <div class="flex items-center gap-4">
+                        <img src="https://kappa.lol/wf04Lx" alt="Avatar" class="review-avatar" loading="lazy" />
+                        <span class="font-semibold text-white tracking-wide">Клиент</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        «Видео получилось именно таким, как я хотела, и наверно Минфай единственный, кто делает точно по сроку, спасибо!»
+                    </p>
+                </div>
+                <div class="review-card stagger-up">
+                    <div class="flex items-center gap-4">
+                        <img src="https://kappa.lol/gADDT5" alt="Avatar" class="review-avatar" loading="lazy" />
+                        <span class="font-semibold text-white tracking-wide">Клиент</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        «Не, ну очень чётко сделано, бро, прям ну очень зашло»
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-6 max-w-[90rem] mx-auto" id="referral">
             <div class="bento-grid">
                 <div class="bento-item col-span-12 stagger-up">
                     <div class="badge mb-8">
@@ -425,7 +621,7 @@
                     <p class="text-2xl md:text-3xl text-gray-200 font-medium mb-16 max-w-3xl mx-auto">
                         Приводишь клиентов — получаешь 20% от их заказа навсегда!
                     </p>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mb-14">
                         <div class="bg-white/5 border border-white/10 p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-white/10 transition-colors shadow-2xl">
                             <div class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-2xl font-bold text-white mb-6 shadow-[0_0_15px_rgba(255,255,255,0.1)]">1</div>
@@ -440,7 +636,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <a href="https://t.me/NNminfai" class="btn-outline text-lg py-4 px-10" target="_blank">
                         Подробности в Telegram
                     </a>
@@ -450,12 +646,12 @@
 
         <section class="py-40 px-6 text-center border-t border-white/5 relative overflow-hidden" id="contact">
             <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" style="background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.05) 0%, transparent 70%);"></div>
-            
+
             <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-8 stagger-up">
                 Ready to start?
             </p>
             <h2 class="text-6xl md:text-[100px] font-bold tracking-tight mb-16 stagger-up leading-none">
-                Твой партнёр<br/>
+                Твой партнёр<br />
                 <span class="text-gradient pb-4">по контенту</span>
             </h2>
             <div class="flex flex-col items-center justify-center gap-6 stagger-up">
@@ -472,8 +668,8 @@
     </main>
 
     <footer class="py-12 px-6 border-t border-white/10 relative z-10 bg-[#050505]">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-semibold text-center">
-            <p>© 2026 NN Минфай Трибелл</p>
+        <div class="max-w-[90rem] mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-xs uppercase tracking-widest text-gray-500 font-semibold text-center">
+            <p>&copy; 2026 NN Минфай Трибелл</p>
             <div class="flex gap-10 justify-center text-sm">
                 <a href="https://www.tiktok.com/@nntribell" target="_blank" class="hover:text-white transition-colors cursor-pointer">TikTok</a>
                 <a href="https://www.instagram.com/minfaitrib" target="_blank" class="hover:text-white transition-colors cursor-pointer">Instagram</a>
@@ -483,126 +679,149 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    
-    <script>
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
+    <div class="cookie-banner" id="cookieBanner">
+        <p class="flex-1 min-w-0">
+            Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой конфиденциальности.
+        </p>
+        <button class="cookie-btn" id="cookieAccept">Принять</button>
+    </div>
 
-        lenis.stop();
-        
-        function raf(time) {
-            lenis.raf(time);
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer>
+    </script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer>
+    </script>
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const cookieBanner = document.getElementById('cookieBanner');
+            const cookieAccept = document.getElementById('cookieAccept');
+
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    cookieBanner.classList.add('active');
+                }, 800);
+            }
+
+            cookieAccept.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookieBanner.classList.remove('active');
+            });
+
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            lenis.stop();
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
             requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loader = document.getElementById("loader");
-                
-                gsap.to(loader, {
-                    opacity: 0, 
-                    duration: 0.8, 
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        loader.style.display = "none";
-                        document.documentElement.classList.remove('loading');
-                        document.body.classList.remove('loading');
-                        lenis.start();
-                        initAnimations();
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    const loader = document.getElementById("loader");
+
+                    gsap.to(loader, {
+                        opacity: 0,
+                        duration: 0.6,
+                        ease: "power2.inOut",
+                        onComplete: () => {
+                            loader.style.display = "none";
+                            document.documentElement.classList.remove('loading');
+                            document.body.classList.remove('loading');
+                            lenis.start();
+                            initAnimations();
+                        }
+                    });
+                }, 800);
+            });
+
+            function initAnimations() {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.to("#hero .stagger-up", {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    stagger: 0.15,
+                    ease: "power3.out"
+                });
+
+                gsap.to(".fade-in", {
+                    opacity: 0.6,
+                    duration: 2,
+                    delay: 0.8,
+                    ease: "power2.out"
+                });
+
+                document.querySelectorAll('[data-animate="stagger"]').forEach(block => {
+                    const items = block.querySelectorAll('.stagger-up');
+                    if (items.length) {
+                        gsap.set(items, { opacity: 0, y: 40 });
+                        gsap.to(items, {
+                            scrollTrigger: {
+                                trigger: block,
+                                start: "top 85%",
+                                toggleActions: "play none none none",
+                            },
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.7,
+                            stagger: 0.1,
+                            ease: "power3.out"
+                        });
                     }
                 });
-            }, 1500);
-        });
 
-        function initAnimations() {
-            gsap.registerPlugin(ScrollTrigger);
-            
-            // Герой
-            gsap.to("#hero .stagger-up", {
-                y: 0,
-                opacity: 1,
-                duration: 1.2,
-                stagger: 0.15,
-                ease: "power3.out"
-            });
-
-            gsap.to(".fade-in", {
-                opacity: 0.6,
-                duration: 2,
-                delay: 1,
-                ease: "power2.out"
-            });
-
-            // Обработка блоков портфолио с аккуратным появлением
-            document.querySelectorAll('[data-animate="stagger"]').forEach(block => {
-                const items = block.querySelectorAll('.stagger-up');
-                if (items.length) {
-                    gsap.set(items, { opacity: 0, y: 40 }); // начальное состояние
-                    gsap.to(items, {
+                gsap.utils.toArray('.stagger-up:not(#hero .stagger-up):not([data-animate] .stagger-up)').forEach(elem => {
+                    gsap.to(elem, {
                         scrollTrigger: {
-                            trigger: block,
-                            start: "top 85%",
-                            toggleActions: "play none none none",
+                            trigger: elem,
+                            start: "top 88%",
                         },
                         y: 0,
                         opacity: 1,
-                        duration: 0.8,
-                        stagger: 0.12, // карточки всплывают одна за другой
+                        duration: 0.9,
                         ease: "power3.out"
                     });
-                }
-            });
-
-            // Остальные элементы (реферальная программа и т.д.)
-            gsap.utils.toArray('.stagger-up:not(#hero .stagger-up):not([data-animate] .stagger-up)').forEach(elem => {
-                gsap.to(elem, {
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 85%",
-                    },
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power3.out"
                 });
-            });
 
-            // Параллакс фона
-            gsap.to("#glow1", {
-                yPercent: 30,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1
-                }
-            });
+                gsap.to("#glow1", {
+                    yPercent: 30,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1
+                    }
+                });
 
-            gsap.to("#glow2", {
-                yPercent: -30,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1
-                }
-            });
-        }
+                gsap.to("#glow2", {
+                    yPercent: -30,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
