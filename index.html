@@ -24,9 +24,8 @@
             --text-main: #ffffff;
             --text-muted: #888888;
             --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(255, 255, 255, 0.02);
-            --glow: rgba(255, 255, 255, 0.15);
             --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
 
         * {
@@ -101,7 +100,6 @@
             background-size: 80px 80px;
             opacity: 0.4;
             mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
-            -webkit-mask-image: linear-gradient(to bottom, black 10%, transparent 90%);
         }
 
         .ambient-glow {
@@ -110,7 +108,6 @@
             filter: blur(120px);
             opacity: 0.25;
             mix-blend-mode: screen;
-            will-change: transform;
         }
 
         .glow-1 {
@@ -202,19 +199,7 @@
                 border-color: rgba(255, 255, 255, 0.3);
                 box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 255, 255, 0.08);
                 transform: translateY(-8px) scale(1.02);
-                z-index: 10;
             }
-            .review-card:hover {
-                border-color: rgba(255, 255, 255, 0.18);
-                transform: translateY(-4px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            }
-            .blogger-card:hover {
-                border-color: rgba(255, 255, 255, 0.22);
-                transform: translateY(-6px);
-                box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-            }
-            a:hover, button:hover { cursor: pointer; }
         }
 
         @media (max-width: 768px) {
@@ -237,50 +222,28 @@
             letter-spacing: 0.05em;
         }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1.5rem;
-        }
-
-        .bento-item {
-            background: linear-gradient(180deg, rgba(25,25,25,0.4) 0%, rgba(0,0,0,0.8) 100%);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(20px);
-            border-radius: 2rem;
-            padding: 5rem 2rem;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: border-color 0.4s ease, transform 0.4s ease;
-        }
-        .bento-item:hover { border-color: rgba(255, 255, 255, 0.2); }
-
         .video-card {
             background: var(--surface);
             border-radius: 1.5rem;
             overflow: hidden;
             border: 1px solid var(--border);
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .stagger-up { opacity: 0; transform: translateY(40px); }
-        .fade-in { opacity: 0; }
 
         .cookie-banner {
             position: fixed;
-            bottom: 0; left: 0; right: 0; z-index: 99999;
-            background: rgba(10, 10, 10, 0.92);
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99999;
+            background: rgba(10, 10, 10, 0.96);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.18);
+            padding: 1.25rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -289,69 +252,47 @@
             transform: translateY(100%);
             transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
             font-size: 0.875rem;
-            color: #aaa;
-            letter-spacing: 0.02em;
+            color: #ccc;
+            padding-bottom: calc(1.25rem + var(--safe-bottom));
+            box-shadow: 0 -4px 25px rgba(0,0,0,0.7);
         }
-        .cookie-banner.active { transform: translateY(0); }
+
+        .cookie-banner.active { 
+            transform: translateY(0); 
+        }
+
+        .cookie-banner p {
+            flex: 1;
+            min-width: 0;
+            margin: 0;
+        }
 
         .cookie-btn {
             background: #ffffff;
             color: #000000;
             border: none;
-            padding: 0.6rem 1.8rem;
+            padding: 0.75rem 2rem;
             border-radius: 9999px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             letter-spacing: 0.04em;
             cursor: pointer;
             transition: all 0.3s ease;
             white-space: nowrap;
-        }
-        .cookie-btn:hover { background: #e0e0e0; transform: scale(1.03); }
-
-        .review-card {
-            background: linear-gradient(180deg, rgba(30,30,30,0.5) 0%, rgba(0,0,0,0.7) 100%);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .review-avatar {
-            width: 48px; height: 48px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(255,255,255,0.2);
             flex-shrink: 0;
         }
 
-        .blogger-card {
-            background: linear-gradient(160deg, rgba(35,35,35,0.6) 0%, rgba(0,0,0,0.85) 100%);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 2rem;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
+        .add-project-text {
+            font-size: 0.95rem;
+            line-height: 1.35;
+            text-align: center;
         }
-        .blogger-card::after {
-            content: '';
-            position: absolute;
-            top: -30%; right: -20%;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        @media (max-width: 768px) {
-            .blogger-card { padding: 2rem; }
+
+        @media (max-width: 480px) {
+            .cookie-banner {
+                padding: 1rem 1.25rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -367,7 +308,7 @@
         <div class="ambient-glow glow-2" id="glow2"></div>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav" style="padding-top: env(safe-area-inset-top);">
+    <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-[90rem] mx-auto px-6 md:px-12 h-18 md:h-20 flex items-center justify-between">
             <a href="#top" class="text-xl md:text-2xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity">
                 NN.TRIBELL
@@ -384,7 +325,7 @@
         </div>
     </nav>
 
-    <main class="relative z-10" style="margin-top: 0;">
+    <main class="relative z-10">
         <section id="hero" class="relative min-h-screen pt-40 pb-16 px-6 flex flex-col justify-center items-center text-center max-w-[90rem] mx-auto">
             <div class="badge stagger-up mb-8">
                 <span class="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_10px_#fff]"></span>
@@ -416,7 +357,7 @@
                 </p>
             </div>
 
-            <div class="mb-32 portfolio-block" data-animate="stagger">
+            <div class="mb-32" data-animate="stagger">
                 <div class="flex items-center justify-center gap-6 mb-14">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
                     <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-gray-200">Горизонтальные видео</h3>
@@ -438,7 +379,7 @@
                 </div>
             </div>
 
-            <div class="portfolio-block" data-animate="stagger">
+            <div data-animate="stagger">
                 <div class="flex items-center justify-center gap-6 mb-14">
                     <div class="h-[1px] w-20 bg-gradient-to-r from-transparent to-gray-500"></div>
                     <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-gray-200">Вертикальные видео</h3>
@@ -470,7 +411,7 @@
                         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
                             <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
                         </div>
-                        <span class="text-sm text-gray-400 uppercase tracking-widest font-semibold group-hover:text-white transition-colors">Добавить проект</span>
+                        <span class="add-project-text text-sm text-gray-400 uppercase tracking-widest font-semibold group-hover:text-white transition-colors">Добавить проект</span>
                     </a>
                 </div>
             </div>
@@ -581,7 +522,6 @@
         </section>
 
         <section class="py-40 px-6 text-center border-t border-white/5 relative overflow-hidden" id="contact">
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" style="background: radial-gradient(ellipse at bottom, rgba(255,255,255,0.05) 0%, transparent 70%);"></div>
             <p class="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-8 stagger-up">Ready to start?</p>
             <h2 class="text-6xl md:text-[100px] font-bold tracking-tight mb-16 stagger-up leading-none">
                 Твой партнёр<br />
@@ -612,7 +552,7 @@
     </footer>
 
     <div class="cookie-banner" id="cookieBanner">
-        <p class="flex-1 min-w-0">Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой конфиденциальности.</p>
+        <p>Мы используем cookies для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой конфиденциальности.</p>
         <button class="cookie-btn" id="cookieAccept">Принять</button>
     </div>
 
@@ -625,24 +565,35 @@
             const cookieBanner = document.getElementById('cookieBanner');
             const cookieAccept = document.getElementById('cookieAccept');
 
-            if (!localStorage.getItem('cookiesAccepted')) {
+            function setCookieAccepted() {
+                try {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                } catch(e) {}
+            }
+
+            function isCookieAccepted() {
+                try {
+                    return localStorage.getItem('cookiesAccepted') === 'true';
+                } catch(e) {
+                    return false;
+                }
+            }
+
+            if (!isCookieAccepted()) {
                 setTimeout(() => { cookieBanner.classList.add('active'); }, 800);
             }
+
             cookieAccept.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
+                setCookieAccepted();
                 cookieBanner.classList.remove('active');
             });
 
             const lenis = new Lenis({
                 duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                direction: 'vertical',
-                gestureDirection: 'vertical',
                 smooth: true,
                 mouseMultiplier: 1,
-                smoothTouch: false,
                 touchMultiplier: 2,
-                infinite: false,
             });
             lenis.stop();
 
@@ -653,7 +604,9 @@
                 setTimeout(() => {
                     const loader = document.getElementById("loader");
                     gsap.to(loader, {
-                        opacity: 0, duration: 0.6, ease: "power2.inOut",
+                        opacity: 0, 
+                        duration: 0.6, 
+                        ease: "power2.inOut",
                         onComplete: () => {
                             loader.style.display = "none";
                             document.documentElement.classList.remove('loading');
@@ -668,28 +621,24 @@
             function initAnimations() {
                 gsap.registerPlugin(ScrollTrigger);
                 gsap.to("#hero .stagger-up", { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: "power3.out" });
-                gsap.to(".fade-in", { opacity: 0.6, duration: 2, delay: 0.8, ease: "power2.out" });
 
                 document.querySelectorAll('[data-animate="stagger"]').forEach(block => {
                     const items = block.querySelectorAll('.stagger-up');
                     if (items.length) {
                         gsap.set(items, { opacity: 0, y: 40 });
                         gsap.to(items, {
-                            scrollTrigger: { trigger: block, start: "top 85%", toggleActions: "play none none none" },
+                            scrollTrigger: { trigger: block, start: "top 85%" },
                             y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: "power3.out"
                         });
                     }
                 });
 
-                gsap.utils.toArray('.stagger-up:not(#hero .stagger-up):not([data-animate] .stagger-up)').forEach(elem => {
+                gsap.utils.toArray('.stagger-up:not(#hero .stagger-up)').forEach(elem => {
                     gsap.to(elem, {
                         scrollTrigger: { trigger: elem, start: "top 88%" },
                         y: 0, opacity: 1, duration: 0.9, ease: "power3.out"
                     });
                 });
-
-                gsap.to("#glow1", { yPercent: 30, ease: "none", scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1 } });
-                gsap.to("#glow2", { yPercent: -30, ease: "none", scrollTrigger: { trigger: "body", start: "top top", end: "bottom bottom", scrub: 1 } });
             }
         });
     </script>
