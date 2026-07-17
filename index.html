@@ -425,6 +425,76 @@
         @media (max-width: 768px) {
             .blogger-card { padding: 2rem; }
         }
+
+        /* Telegram alert banner */
+        .telegram-alert {
+            background: rgba(20, 20, 20, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.25);
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 40;
+            font-size: 1rem;
+            color: #fff;
+        }
+        .telegram-alert .alert-text {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        .telegram-alert .alert-icon {
+            font-size: 1.4rem;
+            color: #fbbf24;
+        }
+        .telegram-alert .alert-link {
+            color: #fbbf24;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s;
+        }
+        .telegram-alert .alert-link:hover {
+            color: #fff;
+        }
+        .telegram-alert .alert-close {
+            background: transparent;
+            border: none;
+            color: #888;
+            font-size: 1.8rem;
+            line-height: 1;
+            padding: 0 0.25rem;
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s;
+            flex-shrink: 0;
+        }
+        .telegram-alert .alert-close:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+        @media (max-width: 600px) {
+            .telegram-alert {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.5rem;
+            }
+            .telegram-alert .alert-text {
+                justify-content: center;
+            }
+            .telegram-alert .alert-close {
+                align-self: flex-end;
+                margin-top: -0.5rem;
+            }
+        }
     </style>
 </head>
 <body class="loading" id="top">
@@ -450,11 +520,21 @@
                 <a href="#reviews" class="hover:text-white transition-colors cursor-pointer">Отзывы</a>
                 <a href="#referral" class="hover:text-white transition-colors cursor-pointer">Партнёрка</a>
             </div>
-            <a href="https://t.me/NNminfai" target="_blank" class="btn-outline text-sm">
-                @NNminfai
+            <a href="https://t.me/NNtribell" target="_blank" class="btn-outline text-sm">
+                @NNtribell
             </a>
         </div>
     </nav>
+
+    <!-- Telegram alert banner -->
+    <div class="telegram-alert" id="telegramAlert">
+        <span class="alert-text">
+            <span class="alert-icon">⚠️</span>
+            Аккаунт <strong>@NNminfai</strong> утерян. Новый Telegram:
+            <a href="https://t.me/NNtribell" target="_blank" class="alert-link">@NNtribell</a>
+        </span>
+        <button class="alert-close" id="closeAlert" aria-label="Закрыть предупреждение">&times;</button>
+    </div>
 
     <main class="relative z-10" style="margin-top: 0;">
         <section id="hero" class="relative min-h-screen pt-40 pb-16 px-6 flex flex-col justify-center items-center text-center max-w-[90rem] mx-auto">
@@ -501,7 +581,7 @@
                     <div class="video-card aspect-video w-full stagger-up">
                         <iframe allow="fullscreen" allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/c9f9af649925f1bcf1946a586646ac0d/?p=pW56yV7VR9EvsFwowg-QQA&fullscreen=1" loading="lazy"></iframe>
                     </div>
-                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent stagger-up">
+                    <a href="https://t.me/NNtribell" target="_blank" class="video-card aspect-video w-full flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-br from-white/5 to-transparent stagger-up">
                         <div class="w-24 h-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-lg">
                             <i class="fa-solid fa-play text-3xl opacity-60 group-hover:opacity-100 transform group-hover:scale-110 transition-transform"></i>
                         </div>
@@ -538,7 +618,7 @@
                     <div class="video-card aspect-[9/16] w-full max-w-[340px] stagger-up">
                         <iframe allow="fullscreen" allowfullscreen class="w-full h-full" frameborder="0" src="https://rutube.ru/play/embed/2a27dded41e29d082a8a196dcd7c59dc/?p=0cSSuGDTiARYSCcWTvm1TA&fullscreen=1" loading="lazy"></iframe>
                     </div>
-                    <a href="https://t.me/NNminfai" target="_blank" class="video-card aspect-[9/16] w-full max-w-[340px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
+                    <a href="https://t.me/NNtribell" target="_blank" class="video-card aspect-[9/16] w-full max-w-[340px] flex flex-col items-center justify-center group cursor-pointer bg-gradient-to-t from-white/5 to-transparent stagger-up">
                         <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
                             <i class="fa-solid fa-plus text-2xl text-gray-400 group-hover:text-white transition-colors"></i>
                         </div>
@@ -555,7 +635,7 @@
             </div>
 
             <div class="mt-20 flex justify-center stagger-up w-full">
-                <a href="https://t.me/NNminfai" class="btn-massive group" target="_blank">
+                <a href="https://t.me/NNtribell" class="btn-massive group" target="_blank">
                     Обсудить проект
                 </a>
             </div>
@@ -652,7 +732,7 @@
                             <p class="text-gray-300 text-lg leading-relaxed font-medium">Клиент пишет мне — я делаю монтаж — ты получаешь свой процент мгновенно!</p>
                         </div>
                     </div>
-                    <a href="https://t.me/NNminfai" class="btn-outline text-lg py-4 px-10" target="_blank">
+                    <a href="https://t.me/NNtribell" class="btn-outline text-lg py-4 px-10" target="_blank">
                         Подробности в Telegram
                     </a>
                 </div>
@@ -667,8 +747,8 @@
                 <span class="text-gradient pb-4">по контенту</span>
             </h2>
             <div class="flex flex-col items-center justify-center gap-6 stagger-up">
-                <a href="https://t.me/NNminfai" target="_blank" class="text-5xl md:text-7xl font-bold text-white hover:text-gray-400 transition-colors flex items-center gap-6 group">
-                    @NNminfai
+                <a href="https://t.me/NNtribell" target="_blank" class="text-5xl md:text-7xl font-bold text-white hover:text-gray-400 transition-colors flex items-center gap-6 group">
+                    @NNtribell
                     <i class="fa-brands fa-telegram text-gray-500 group-hover:text-blue-400 transition-colors transform group-hover:scale-110"></i>
                 </a>
                 <p class="text-gray-400 text-sm tracking-widest uppercase mt-8 font-medium">
@@ -723,6 +803,20 @@
             cookieRefuse.addEventListener('click', () => {
                 localStorage.setItem('cookiesRefused', 'true');
                 cookieBanner.classList.remove('active');
+            });
+
+            // Telegram alert banner close
+            const alertBanner = document.getElementById('telegramAlert');
+            const closeAlert = document.getElementById('closeAlert');
+
+            // Если баннер уже был закрыт, скрываем
+            if (localStorage.getItem('telegramAlertClosed')) {
+                alertBanner.style.display = 'none';
+            }
+
+            closeAlert.addEventListener('click', function() {
+                alertBanner.style.display = 'none';
+                localStorage.setItem('telegramAlertClosed', 'true');
             });
 
             // Lenis smooth scroll
@@ -796,4 +890,4 @@
         });
     </script>
 </body>
-                            </html>
+</html>
